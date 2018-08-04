@@ -10,6 +10,7 @@ def main():
 
   # dictionary of drug and prescriber
   # key is drug name, value is a set of all prescriber id
+  # The purpose of set is to eliminate all duplicate prescribers
   drug_prescriber = dict() 
 
   with open(input_file, 'r') as f:
