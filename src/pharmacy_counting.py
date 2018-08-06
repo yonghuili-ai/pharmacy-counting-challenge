@@ -25,11 +25,12 @@ def main():
       if drug_name not in drug_list:
         drug_list[drug_name] = [drug_cost, 1]
         drug_prescriber[drug_name] = {prescriber_id}
-      # only if the prescriber is not in the set, add cost and prescribe number
-      elif prescriber_id not in drug_prescriber[drug_name]:
+      else:
         drug_list[drug_name][0] += drug_cost
-        drug_list[drug_name][1] += 1
-        drug_prescriber[drug_name].add(prescriber_id)
+        # only if the prescriber is not in the set, add prescribe number
+        if prescriber_id not in drug_prescriber[drug_name]:
+          drug_list[drug_name][1] += 1
+          drug_prescriber[drug_name].add(prescriber_id)
 
   result = []
   for name in drug_list.keys():
